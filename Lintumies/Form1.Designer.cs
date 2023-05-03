@@ -36,6 +36,7 @@
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
+            label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = SystemColors.ControlLightLight;
+            pictureBox1.BackColor = SystemColors.ActiveCaption;
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.InitialImage = null;
@@ -120,11 +121,21 @@
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.BackColor = SystemColors.ActiveCaption;
+            label1.Location = new Point(287, 274);
+            label1.Name = "label1";
+            label1.Size = new Size(314, 62);
+            label1.TabIndex = 2;
+            label1.Text = "Welcome to bird quiz. \r\nYour task is to listen to the bird song and \r\nselect the corresponding bird from the 3 options below";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 525);
+            Controls.Add(label1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
@@ -145,5 +156,6 @@
         private Button button3;
         private Button button2;
         private PictureBox pictureBox1;
+        private Label label1;
     }
 }
