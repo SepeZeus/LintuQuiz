@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Diagnostics;
 using System.Media;
 
 namespace Lintumies
@@ -14,11 +15,24 @@ namespace Lintumies
         {
 
         }
+        List<string> arr = new List<string> { "Varis_1.wav", "Varis_2.wav", "Varis_3.wav"
+            , "Varis_4.wav", "Varis_5.wav" }; //Test code for .wav files
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(@"C:\Users\Miko\Source\Repos\MILFhunterkuusysi\LintuQuiz\Lintumies\Lintuaanet\Harakka\Harakka_4.wav");
+            //Test code for .wav files
+
+            //Random rnd = new Random();
+            //int rndN = rnd.Next(0, arr.Count);
+            string birdSound = arr[0];
+            //Debug.WriteLine(arr[0]);
+            string birdSoundPath = Path.GetFullPath("../../../Lintuaanet/Varis/" + birdSound);
+
+            SoundPlayer player = new SoundPlayer(birdSoundPath);
+            Debug.WriteLine(birdSoundPath);
+
             player.Play();
+
         }
     }
 }
