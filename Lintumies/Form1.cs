@@ -1,3 +1,6 @@
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Media;
+
 namespace Lintumies
 {
     public partial class Form1 : Form
@@ -5,6 +8,17 @@ namespace Lintumies
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(@"C:\Users\Miko\Source\Repos\MILFhunterkuusysi\LintuQuiz\Lintumies\Lintuaanet\Harakka\Harakka_4.wav");
+            player.Play();
         }
     }
 }

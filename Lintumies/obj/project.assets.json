@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\valtt\\.nuget\\packages\\": {}
+    "C:\\Users\\Miko\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\valtt\\Desktop\\VS\\Lintumies\\Lintumies\\Lintumies.csproj",
+      "projectUniqueName": "C:\\Users\\Miko\\Source\\Repos\\MILFhunterkuusysi\\LintuQuiz\\Lintumies\\Lintumies.csproj",
       "projectName": "Lintumies",
-      "projectPath": "C:\\Users\\valtt\\Desktop\\VS\\Lintumies\\Lintumies\\Lintumies.csproj",
-      "packagesPath": "C:\\Users\\valtt\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\valtt\\Desktop\\VS\\Lintumies\\Lintumies\\obj\\",
+      "projectPath": "C:\\Users\\Miko\\Source\\Repos\\MILFhunterkuusysi\\LintuQuiz\\Lintumies\\Lintumies.csproj",
+      "packagesPath": "C:\\Users\\Miko\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Miko\\Source\\Repos\\MILFhunterkuusysi\\LintuQuiz\\Lintumies\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\valtt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Miko\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
