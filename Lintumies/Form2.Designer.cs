@@ -52,7 +52,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(142, 511);
+            button2.Location = new Point(133, 456);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(250, 150);
@@ -63,9 +63,9 @@
             // 
             // listView1
             // 
-            listView1.Location = new Point(29, 40);
+            listView1.Location = new Point(29, 25);
             listView1.Name = "listView1";
-            listView1.Size = new Size(475, 408);
+            listView1.Size = new Size(475, 323);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
