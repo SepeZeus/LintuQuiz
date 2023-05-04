@@ -12,10 +12,14 @@ namespace Lintumies.Database
         public class BirdDBMethods
         {
             public string birdName { get; set; }
+
+            public string[] birdSounds { get; set; }
+
             public int heardCnt { get; set; }
             public int correctCnt { get; set; }
             public int wrongCnt { get; set; }
             public int Priority { get; set; }
+
 
             // Method to save data to a .json file
             public void SaveToJson(string fileName)
@@ -30,6 +34,33 @@ namespace Lintumies.Database
                     Console.WriteLine("Error saving data to file: " + ex.Message);
                 }
             }
+
+            public static BirdDBMethods GetBirdDetails(string birdName)
+            {
+                string filePath = "../../../Database/birdData.json";
+
+                // Load existing data from file, if it exists
+                List<BirdDBMethods> birds = new List<BirdDBMethods>();
+                if (File.Exists(filePath))
+                {
+                    string jsonData = File.ReadAllText(filePath);
+                    birds = JsonConvert.DeserializeObject<List<BirdDBMethods>>(jsonData);
+                }
+
+                // Find the bird with the specified name and return its details
+                var bird = birds.FirstOrDefault(b => b.birdName == birdName);
+                if (bird != null)
+                {
+                    return bird;
+                }
+                else
+                {
+                    Console.WriteLine("Bird not found");
+                    return null;
+                }
+            }
+
+
 
             public void AddBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, int priority)
             {
