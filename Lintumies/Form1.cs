@@ -60,7 +60,6 @@ namespace Lintumies
 
             if (button2.Text != buttons[rndBtn].Text)
                 button2.Text = Satunnainen();
-
             if (button3.Text != buttons[rndBtn].Text)
                 button3.Text = Satunnainen();
             if (button4.Text != buttons[rndBtn].Text)
@@ -126,7 +125,7 @@ namespace Lintumies
         {
             BirdDB.BirdDBMethods birdUpdate = new BirdDB.BirdDBMethods();
 
-            int heardCnt = birdDetails.heardCnt, correctCnt = birdDetails.correctCnt, wrongCnt = birdDetails.wrongCnt;
+            int heardCnt = birdDetails.heardCnt, correctCnt = birdDetails.correctCnt, wrongCnt = birdDetails.wrongCnt, rowCnt = birdDetails.rowCnt;
 
             if (correct)
             {
@@ -139,7 +138,7 @@ namespace Lintumies
                 wrongCnt += 1;
             }
             double priority = spacedRepetition.priotityCalculator(heardCnt, wrongCnt);
-            birdUpdate.UpdateBird(bird, heardCnt, correctCnt, wrongCnt, priority);
+            birdUpdate.UpdateBird(bird, heardCnt, correctCnt, wrongCnt, rowCnt, priority);
 
         }
         private void button2_Click(object sender, EventArgs e)

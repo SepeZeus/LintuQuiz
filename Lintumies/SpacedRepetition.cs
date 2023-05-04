@@ -27,6 +27,7 @@ namespace Lintumies
                 priority = 0.99;
             else if (priority < 0.1)
                 priority = 0.1;
+            priority = 0.1;
             return priority;
         }
         //return a list of birds
@@ -35,6 +36,8 @@ namespace Lintumies
             Random random = new Random();
             double rndChance = Math.Round(random.NextDouble(), 2);
             int rndBird = random.Next(0, 10);
+
+
 
             List<string> birdList = new List<string>();
             List<string> checkList = new List<string>(); //check if all birds have been tried already
@@ -64,14 +67,14 @@ namespace Lintumies
                 //Debug.WriteLine(rndChance);
                 //Debug.WriteLine(birds[rndBird]);
 
-                if (!birdList.Contains(birds[rndBird]) && birdGet.Priority > rndChance && birdList.Count != 5)
-                { //higher priority birds get chosen easier
+                if (!birdList.Contains(birds[rndBird]) && birdGet.Priority > rndChance && birdList.Count != 5 && birdGet.rowCnt <= 2)
+                { //higher priority birds get chosen easier, max 3 times in a row
                     birdList.Add(birds[rndBird]);
 
                 }
-                else if (!birdList.Contains(birds[rndBird]) && checkList.Count == 10 && birdList.Count != 5) //if bird is not already in list
+                else if (!birdList.Contains(birds[rndBird]) && checkList.Count == 10 && birdList.Count != 5 && birdGet.rowCnt <= 2) //if bird is not already in list
                     birdList.Add(birds[rndBird]);
-                
+
                 if(birdList.Count == 5)
                     break;
 
@@ -83,6 +86,20 @@ namespace Lintumies
                     Debug.WriteLine(item);
                 }
                 Debug.WriteLine("====================================");
+
+            }
+
+            //bird will not appear more than three times in a row (not affected if high priority) && will not appear for two times in a row after
+            foreach (string bird in birds)
+            {
+                BirdDB.BirdDBMethods birdGet = BirdDB.BirdDBMethods.GetBirdDetails(bird);
+                BirdDB.BirdDBMethods birdUpdate = new BirdDB.BirdDBMethods();
+                int rowCnt = birdGet.rowCnt;
+                if (!birdList.Contains(bird) || rowCnt > 3)
+                    rowCnt = 0;
+                else
+                    rowCnt += 1;
+                birdUpdate.UpdateBird(birdGet.birdName, birdGet.heardCnt, birdGet.correctCnt, birdGet.wrongCnt, rowCnt, birdGet.Priority);
 
             }
 

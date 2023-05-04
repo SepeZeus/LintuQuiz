@@ -18,6 +18,7 @@ namespace Lintumies.Database
             public int heardCnt { get; set; }
             public int correctCnt { get; set; }
             public int wrongCnt { get; set; }
+            public int rowCnt { get; set; }
             public double Priority { get; set; }
 
 
@@ -62,7 +63,7 @@ namespace Lintumies.Database
 
 
 
-            public void AddBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, double priority)
+            public void AddBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, int rowCnt, double priority)
             {
                 string filePath = "../../../Database/birdData.json";
 
@@ -81,6 +82,7 @@ namespace Lintumies.Database
                     heardCnt = heardCnt,
                     correctCnt = correctCnt,
                     wrongCnt = wrongCnt,
+                    rowCnt = rowCnt,
                     Priority = priority
                 };
                 birds.Add(bird);
@@ -91,7 +93,7 @@ namespace Lintumies.Database
             }
 
 
-            public void UpdateBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, double priority)
+            public void UpdateBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, int rowCnt, double priority)
             {
                 string filePath = "../../../Database/birdData.json";
 
@@ -110,6 +112,7 @@ namespace Lintumies.Database
                     bird.heardCnt = heardCnt;
                     bird.correctCnt = correctCnt;
                     bird.wrongCnt = wrongCnt;
+                    bird.rowCnt = rowCnt;
                     bird.Priority = priority;
                 }
                 else
@@ -121,6 +124,7 @@ namespace Lintumies.Database
                         heardCnt = heardCnt,
                         correctCnt = correctCnt,
                         wrongCnt = wrongCnt,
+                        rowCnt = rowCnt,
                         Priority = priority
                     };
                     birds.Add(bird);
