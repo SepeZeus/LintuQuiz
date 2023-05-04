@@ -1,10 +1,22 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
 using System.Media;
-using static Lintumies.Database.BirdDB;
+using Lintumies.Database;
+
 
 namespace Lintumies
 {
+    //basic code to create and save a bird
+
+    //BirdBD bird = new BirdBD()
+    //{
+    //    birdName = "Some bird name",
+    //    heardCnt = 10,
+    //    correctCnt = 5,
+    //    wrongCnt = 5,
+    //    Priority = 2
+    //};
+    //bird.SaveToJson("birdData.json");
     public partial class Form1 : Form
     {
         string bird = "Varis";
@@ -12,7 +24,10 @@ namespace Lintumies
         public Form1()
         {
             InitializeComponent();
+            
         }
+
+
         List<string> arr = new List<string> { "Varis_1.wav", "Varis_2.wav", "Varis_3.wav"
             , "Varis_4.wav", "Varis_5.wav" }; //Test code for .wav files
 
@@ -35,6 +50,11 @@ namespace Lintumies
 
         }
 
+        /*
+         * button changes colors of wrong answers to red and correct to green
+         * chosen answer changes outline to yellow
+         * bird image will be shown
+        */
         private void button2_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -94,6 +114,7 @@ namespace Lintumies
             }
         }
 
+        //button for Next bird sound
         private void button6_Click(object sender, EventArgs e)
         {
             button2.BackColor = Color.Magenta;
@@ -111,15 +132,13 @@ namespace Lintumies
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             clicked = false;
 
-            BirdBD bird = new BirdBD()
-            {
-                birdName = "Some bird name",
-                heardCnt = 10,
-                correctCnt = 5,
-                wrongCnt = 5,
-                Priority = 2
-            };
-            bird.SaveToJson("birdData.json");
+            List<BirdDB.BirdDBMethods> birdList = new List<BirdDB.BirdDBMethods>();
+            BirdDB.BirdDBMethods bird = new BirdDB.BirdDBMethods();
+            //bird.AddBird("bird name", 10, 5, 5, 1);
+            bird.UpdateBird("sparrow", 20, 10, 5, 10);
+
+
+
 
         }
     }
