@@ -20,6 +20,7 @@ namespace Lintumies
         int rndBtn = 0;
 
         private SoundPlayer player;
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
         BirdDB.BirdDBMethods birdDetails;
         SpacedRepetition spacedRepetition = new SpacedRepetition();
@@ -35,6 +36,8 @@ namespace Lintumies
             buttons[1] = button3;
             buttons[2] = button4;
             buttons[3] = button5;
+            timer.Interval = 5000; //set the duration to 5 seconds
+            timer.Tick += Timer_Tick;
             birdRowCntReset();
             setButtons();
         }
@@ -99,6 +102,7 @@ namespace Lintumies
 
             player = new SoundPlayer(birdDetails.birdSounds[rndBirdSound]);
             player.Play();
+            timer.Start();
         }
 
         /*
@@ -203,7 +207,10 @@ namespace Lintumies
             clicked = false;
 
             if (player != null)
+            {
                 player.Stop();
+                timer.Stop();
+            }
             linnut = spacedRepetition.listOfBirds();
             string rndBird = Satunnainen();
             bird = rndBird;
@@ -222,6 +229,12 @@ namespace Lintumies
 
             button1_Click(sender, e);
 
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            player.Stop();
+            timer.Stop(); 
         }
         private string Satunnainen()
         {
