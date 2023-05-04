@@ -19,11 +19,17 @@ namespace Lintumies
     //bird.SaveToJson("birdData.json");
     public partial class Form1 : Form
     {
-        string bird = "Varis";
         bool clicked = false;
+        string bird = ""; 
+        string birdImagePath = "";
+
+
         public Form1()
         {
             InitializeComponent();
+            bird = Satunnainen();
+            birdImagePath = Path.GetFullPath("../../../Lintukuvat/"+bird+".jpg");
+
 
         }
 
@@ -31,7 +37,6 @@ namespace Lintumies
         List<string> arr = new List<string> { "Varis_1.wav", "Varis_2.wav", "Varis_3.wav"
             , "Varis_4.wav", "Varis_5.wav" }; //Test code for .wav files
 
-        string birdImagePath = Path.GetFullPath("../../../Lintukuvat/Varis.jpg");
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -120,6 +125,19 @@ namespace Lintumies
         //button for Next bird sound
         private void button6_Click(object sender, EventArgs e)
         {
+            string rndBird = Satunnainen();
+            birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + rndBird + ".jpg");
+            pictureBox1.Image = Image.FromFile("../../../Lintukuvat/Lintu.png");
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+
+            bird = rndBird;
+
+            button2.Text = rndBird;
+            button3.Text = Satunnainen();
+            button4.Text = Satunnainen();
+            button5.Text = Satunnainen();
+
             button2.BackColor = Color.Magenta;
             button3.BackColor = Color.Magenta;
             button4.BackColor = Color.Magenta;
@@ -131,53 +149,41 @@ namespace Lintumies
             button4.ForeColor = Color.White;
             button5.ForeColor = Color.White;
 
-            pictureBox1.Image = Image.FromFile(birdImagePath);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             clicked = false;
 
+            
+
+
             List<BirdDB.BirdDBMethods> birdList = new List<BirdDB.BirdDBMethods>();
-            BirdDB.BirdDBMethods bird = new BirdDB.BirdDBMethods();
             //bird.AddBird("bird name", 10, 5, 5, 1);
-            bird.UpdateBird("sparrow", 20, 10, 5, 10);
 
-            BirdDB.BirdDBMethods varis = BirdDB.BirdDBMethods.GetBirdDetails("sparrow");
 
 
 
         }
-    }
 
-    internal class Lintu
-    {
-        public Lintu(int id, string nimi)
+
+        public string Satunnainen()
         {
-            Id = id;
-            Nimi = nimi;
-        }
-
-        public int Id { get; set; }
-        public string Nimi { get; set; }
-
-        public void Satunnainen()
-        {
-            List<Lintu> linnut = new List<Lintu>()
-            {
-                new Lintu(1, "Harakka"),
-                new Lintu(2, "Hippiainen"),
-                new Lintu(3, "Jarripeippo"),
-                new Lintu(4, "Kaki"),
-                new Lintu(5, "Pajulintu"),
-                new Lintu(6, "Peippo"),
-                new Lintu(7, "Punarinta"),
-                new Lintu(8, "Rakattirastas"),
-                new Lintu(9, "Selkalokki"),
-                new Lintu(10, "Varis")
-            };
+            List<string> linnut = new List<string>();
+            linnut.Add("Harakka");
+            linnut.Add("Hippiainen");
+            linnut.Add("Jarripeippo");
+            linnut.Add("Kaki");
+            linnut.Add("Pajulintu");
+            linnut.Add("Peippo");
+            linnut.Add("Punarinta");
+            linnut.Add("Rakattirastas");
+            linnut.Add("Selkalokki");
+            linnut.Add("Varis");
             Random random = new Random();
-            int luku = random.Next(1, 11);
-            var etsi = from x in linnut
-                       where x.Id == luku
-                       select x.Nimi;
+            int luku = random.Next(0, 10);
+            var lintu = linnut[luku];
+            Debug.WriteLine(luku);
+
+            return lintu;
+
+
         }
     }
 }
