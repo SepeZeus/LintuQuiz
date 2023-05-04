@@ -8,11 +8,11 @@
       "../../../Lintuaanet/Harakka/Harakka_4.wav",
       "../../../Lintuaanet/Harakka/Harakka_5.wav"
     ],
-    "heardCnt": 106,
-    "correctCnt": 1,
-    "wrongCnt": 105,
-    "rowCnt": 1,
-    "Priority": 0.1
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
   },
   {
     "birdName": "Hippiainen",
@@ -23,11 +23,11 @@
       "../../../Lintuaanet/Hippiainen/Hippiainen_4.wav",
       "../../../Lintuaanet/Hippiainen/Hippiainen_5.wav"
     ],
-    "heardCnt": 103,
-    "correctCnt": 1,
-    "wrongCnt": 102,
-    "rowCnt": 1,
-    "Priority": 0.1
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
   },
   {
     "birdName": "Jarripeippo",
@@ -38,11 +38,11 @@
       "../../../Lintuaanet/Jarripeippo/Jarripeippo_4.wav",
       "../../../Lintuaanet/Jarripeippo/Jarripeippo_5.wav"
     ],
-    "heardCnt": 101,
-    "correctCnt": 1,
-    "wrongCnt": 100,
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
     "rowCnt": 0,
-    "Priority": 0.1
+    "Priority": 0.9
   },
   {
     "birdName": "Kaki",
@@ -53,11 +53,11 @@
       "../../../Lintuaanet/Kaki/Kaki_4.wav",
       "../../../Lintuaanet/Kaki/Kaki_5.wav"
     ],
-    "heardCnt": 96,
-    "correctCnt": 1,
-    "wrongCnt": 95,
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
     "rowCnt": 0,
-    "Priority": 0.1
+    "Priority": 0.9
   },
   {
     "birdName": "Pajulintu",
@@ -68,11 +68,11 @@
       "../../../Lintuaanet/Pajulintu/Pajulintu_4.wav",
       "../../../Lintuaanet/Pajulintu/Pajulintu_5.wav"
     ],
-    "heardCnt": 104,
-    "correctCnt": 1,
-    "wrongCnt": 103,
-    "rowCnt": 1,
-    "Priority": 0.1
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
   },
   {
     "birdName": "Peippo",
@@ -83,11 +83,11 @@
       "../../../Lintuaanet/Peippo/Peippo_4.wav",
       "../../../Lintuaanet/Peippo/Peippo_5.wav"
     ],
-    "heardCnt": 98,
-    "correctCnt": 1,
-    "wrongCnt": 97,
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
     "rowCnt": 0,
-    "Priority": 0.1
+    "Priority": 0.9
   },
   {
     "birdName": "Punarinta",
@@ -98,11 +98,11 @@
       "../../../Lintuaanet/Punarinta/Punarinta_4.wav",
       "../../../Lintuaanet/Punarinta/Punarinta_5.wav"
     ],
-    "heardCnt": 84,
-    "correctCnt": 1,
-    "wrongCnt": 83,
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
     "rowCnt": 0,
-    "Priority": 0.1
+    "Priority": 0.9
   },
   {
     "birdName": "Rakattirastas",
@@ -113,11 +113,11 @@
       "../../../Lintuaanet/Rakattirastas/Rakattirastas_4.wav",
       "../../../Lintuaanet/Rakattirastas/Rakattirastas_5.wav"
     ],
-    "heardCnt": 105,
-    "correctCnt": 1,
-    "wrongCnt": 104,
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
     "rowCnt": 0,
-    "Priority": 0.1
+    "Priority": 0.9
   },
   {
     "birdName": "Selkalokki",
@@ -128,11 +128,11 @@
       "../../../Lintuaanet/Selkalokki/Selkalokki_4.wav",
       "../../../Lintuaanet/Selkalokki/Selkalokki_5.wav"
     ],
-    "heardCnt": 102,
-    "correctCnt": 1,
-    "wrongCnt": 101,
-    "rowCnt": 2,
-    "Priority": 0.1
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
   },
   {
     "birdName": "Varis",
@@ -143,10 +143,10 @@
       "../../../Lintuaanet/Varis/Varis_4.wav",
       "../../../Lintuaanet/Varis/Varis_5.wav"
     ],
-    "heardCnt": 88,
-    "correctCnt": 1,
-    "wrongCnt": 87,
-    "rowCnt": 1,
-    "Priority": 0.1
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
   }
 ]

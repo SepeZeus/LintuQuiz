@@ -5,33 +5,24 @@ using Lintumies.Database;
 
 namespace Lintumies
 {
-    //basic code to create and save a bird
-
-    //BirdBD bird = new BirdBD()
-    //{
-    //    birdName = "Some bird name",
-    //    heardCnt = 10,
-    //    correctCnt = 5,
-    //    wrongCnt = 5,
-    //    Priority = 2
-    //};
-    //bird.SaveToJson("birdData.json");
     public partial class Form1 : Form
     {
         bool clicked = false;
         bool correctAnswer = false;
+
         string bird = "";
         string birdImagePath = "";
-        Random random = new Random();
+
+        List<string> linnut;
         Button[] buttons = new Button[4];
+
+        Random random = new Random();
         int rndBtn = 0;
+
         private SoundPlayer player;
+
         BirdDB.BirdDBMethods birdDetails;
         SpacedRepetition spacedRepetition = new SpacedRepetition();
-        List<string> linnut;
-
-        bool locked = false;
-
 
         public Form1()
         {
@@ -44,6 +35,7 @@ namespace Lintumies
             buttons[1] = button3;
             buttons[2] = button4;
             buttons[3] = button5;
+            birdRowCntReset();
             setButtons();
         }
 
@@ -52,11 +44,7 @@ namespace Lintumies
         public void setButtons()
         {
             rndBtn = random.Next(0, 4);
-            Satunnainen();
-            locked = true;
-
             buttons[rndBtn].Text = bird;
-            
 
             if (button2.Text != buttons[rndBtn].Text)
                 button2.Text = Satunnainen();
@@ -67,8 +55,7 @@ namespace Lintumies
             if (button5.Text != buttons[rndBtn].Text)
                 button5.Text = Satunnainen();
 
-            checkIfSame();
-
+            checkIfSame(); //make sure none of the buttons have the same bird
         }
 
         //checks if any of the choices are the same -> change name of one of the choices
@@ -77,7 +64,8 @@ namespace Lintumies
 
             if (button2.Text == button3.Text || button2.Text == button4.Text || button2.Text == button5.Text ||
                 button3.Text == button4.Text || button3.Text == button5.Text ||
-                button4.Text == button5.Text) {
+                button4.Text == button5.Text)
+            {
 
                 for (int i = 0; i < 4; i++)
                 {
@@ -89,7 +77,7 @@ namespace Lintumies
                     {
                         button2.Text = Satunnainen();
                     }
-                    else if(button3.Text != bird && (button3.Text == button4.Text || button3.Text == button5.Text))
+                    else if (button3.Text != bird && (button3.Text == button4.Text || button3.Text == button5.Text))
                     {
                         button3.Text = Satunnainen();
                     }
@@ -111,8 +99,6 @@ namespace Lintumies
 
             player = new SoundPlayer(birdDetails.birdSounds[rndBirdSound]);
             player.Play();
-
-
         }
 
         /*
@@ -120,12 +106,11 @@ namespace Lintumies
          * chosen answer changes outline to yellow
          * bird image will be shown
         */
-
-        private void birdUpdater(bool correct)
+        private void birdUpdater(bool correct, BirdDB.BirdDBMethods birdDetails)
         {
             BirdDB.BirdDBMethods birdUpdate = new BirdDB.BirdDBMethods();
 
-            int heardCnt = birdDetails.heardCnt, correctCnt = birdDetails.correctCnt, wrongCnt = birdDetails.wrongCnt, rowCnt = birdDetails.rowCnt;
+            int heardCnt = birdDetails.heardCnt, correctCnt = birdDetails.correctCnt, wrongCnt = birdDetails.wrongCnt;
 
             if (correct)
             {
@@ -138,30 +123,31 @@ namespace Lintumies
                 wrongCnt += 1;
             }
             double priority = spacedRepetition.priotityCalculator(heardCnt, wrongCnt);
-            birdUpdate.UpdateBird(bird, heardCnt, correctCnt, wrongCnt, rowCnt, priority);
-
+            birdUpdate.UpdateBird(birdDetails.birdName, heardCnt, correctCnt, wrongCnt, birdDetails.rowCnt, priority);
         }
         private void button2_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             if (!clicked)
             {
+                label1.Visible = false;
+                clicked = true;
+
                 if (btn.Text == bird)
                     correctAnswer = true;
                 else
                     correctAnswer = false;
-                birdUpdater(correctAnswer);
-                label1.Visible = false;
-                clicked = true;
+
+                birdUpdater(correctAnswer, birdDetails);
+
                 btn.ForeColor = Color.Yellow;
+
                 if (button2.Text == bird)
                 {
                     button2.BackColor = Color.Green;
                     button3.BackColor = Color.Red;
                     button4.BackColor = Color.Red;
                     button5.BackColor = Color.Red;
-
-
 
                     pictureBox1.Image = Image.FromFile(birdImagePath);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -175,7 +161,6 @@ namespace Lintumies
                     button4.BackColor = Color.Red;
                     button5.BackColor = Color.Red;
 
-
                     pictureBox1.Image = Image.FromFile(birdImagePath);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
@@ -186,7 +171,6 @@ namespace Lintumies
                     button2.BackColor = Color.Red;
                     button3.BackColor = Color.Red;
                     button5.BackColor = Color.Red;
-
 
                     pictureBox1.Image = Image.FromFile(birdImagePath);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -200,7 +184,6 @@ namespace Lintumies
                     button3.BackColor = Color.Red;
                     button4.BackColor = Color.Red;
 
-
                     pictureBox1.Image = Image.FromFile(birdImagePath);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
@@ -210,64 +193,70 @@ namespace Lintumies
         //button for Next bird sound
         private void button6_Click(object sender, EventArgs e)
         {
-            if(player != null)
-                player.Stop();
-            linnut = spacedRepetition.listOfBirds();
-            string rndBird = Satunnainen();
-            birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + rndBird + ".jpg");
-            pictureBox1.Image = Image.FromFile("../../../Lintukuvat/Lintu.png");
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            locked = false;
-
-            bird = rndBird;
-
-            setButtons();
-
-
-
-            button2.BackColor = Color.Magenta;
-            button3.BackColor = Color.Magenta;
-            button4.BackColor = Color.Magenta;
-            button5.BackColor = Color.Magenta;
-
-
-            button2.ForeColor = Color.White;
-            button3.ForeColor = Color.White;
-            button4.ForeColor = Color.White;
-            button5.ForeColor = Color.White;
-
+            //if user pressed Next without answering update bird with +1 in wrongCnt
             if (!clicked)
             {
                 correctAnswer = false;
-                birdUpdater(correctAnswer);
+                birdUpdater(correctAnswer, birdDetails);
             }
 
             clicked = false;
 
+            if (player != null)
+                player.Stop();
+            linnut = spacedRepetition.listOfBirds();
+            string rndBird = Satunnainen();
+            bird = rndBird;
+            birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + rndBird + ".jpg");
+            pictureBox1.Image = Image.FromFile("../../../Lintukuvat/Lintu.png");
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            setButtons();
+
+            //reset buttons to default values
+            for (int i = 0; i < 4; i++)
+            {
+                buttons[i].BackColor = Color.Black;
+                buttons[i].ForeColor = Color.White;
+            }
+
             button1_Click(sender, e);
 
         }
-
-
-        public string Satunnainen()
+        private string Satunnainen()
         {
             Random random = new Random();
-            int luku = random.Next(0, 5);
+            int luku = random.Next(0, 4);
             var lintu = linnut[luku];
-
-            if (!locked)
-            {
-                Debug.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-
-                for (int i = 0; i < 5; i++)
-                {
-                    Debug.WriteLine(linnut[i]);
-                }
-            }
             return lintu;
+        }
 
+        //Reset the rowCnt for all birds
+        private void birdRowCntReset()
+        {
+            List<string> birds = new List<string>();
+            birds.Add("Harakka");
+            birds.Add("Hippiainen");
+            birds.Add("Jarripeippo");
+            birds.Add("Kaki");
+            birds.Add("Pajulintu");
+            birds.Add("Peippo");
+            birds.Add("Punarinta");
+            birds.Add("Rakattirastas");
+            birds.Add("Selkalokki");
+            birds.Add("Varis");
+            foreach (string bird in birds)
+            {
+                birdDetails = BirdDB.BirdDBMethods.GetBirdDetails(bird);
+                BirdDB.BirdDBMethods birdUpdate = new BirdDB.BirdDBMethods();
+                birdUpdate.UpdateBird(birdDetails.birdName, birdDetails.heardCnt, birdDetails.correctCnt, birdDetails.wrongCnt, 0, birdDetails.Priority);
+            }
+        }
 
+        //reset rowCnt when exiting the application
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            birdRowCntReset();
         }
     }
 }

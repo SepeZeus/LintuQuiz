@@ -12,15 +12,12 @@ namespace Lintumies.Database
         public class BirdDBMethods
         {
             public string birdName { get; set; }
-
             public string[] birdSounds { get; set; }
-
             public int heardCnt { get; set; }
             public int correctCnt { get; set; }
             public int wrongCnt { get; set; }
             public int rowCnt { get; set; }
             public double Priority { get; set; }
-
 
             // Method to save data to a .json file
             public void SaveToJson(string fileName)
@@ -35,7 +32,6 @@ namespace Lintumies.Database
                     Console.WriteLine("Error saving data to file: " + ex.Message);
                 }
             }
-
             public static BirdDBMethods GetBirdDetails(string birdName)
             {
                 string filePath = "../../../Database/birdData.json";
