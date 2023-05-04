@@ -16,6 +16,10 @@
 /.vs/Registry/FileContentIndex
 /.vs/LintuQuiz/FileContentIndex
 /.vs/slnx.sqlite
+<<<<<<< HEAD
+=======
+/.Lintumies/bin/Debug/net6.0-windows
+>>>>>>> developmentti
 
 # Compiled source #
 ###################
@@ -53,4 +57,8 @@
 .Spotlight-V100
 .Trashes
 ehthumbs.db
+<<<<<<< HEAD
 Thumbs.db
+=======
+Thumbs.db
+>>>>>>> developmentti

@@ -1,0 +1,152 @@
+[
+  {
+    "birdName": "Harakka",
+    "birdSounds": [
+      "../../../Lintuaanet/Harakka/Harakka_1.wav",
+      "../../../Lintuaanet/Harakka/Harakka_2.wav",
+      "../../../Lintuaanet/Harakka/Harakka_3.wav",
+      "../../../Lintuaanet/Harakka/Harakka_4.wav",
+      "../../../Lintuaanet/Harakka/Harakka_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Hippiainen",
+    "birdSounds": [
+      "../../../Lintuaanet/Hippiainen/Hippiainen_1.wav",
+      "../../../Lintuaanet/Hippiainen/Hippiainen_2.wav",
+      "../../../Lintuaanet/Hippiainen/Hippiainen_3.wav",
+      "../../../Lintuaanet/Hippiainen/Hippiainen_4.wav",
+      "../../../Lintuaanet/Hippiainen/Hippiainen_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Jarripeippo",
+    "birdSounds": [
+      "../../../Lintuaanet/Jarripeippo/Jarripeippo_1.wav",
+      "../../../Lintuaanet/Jarripeippo/Jarripeippo_2.wav",
+      "../../../Lintuaanet/Jarripeippo/Jarripeippo_3.wav",
+      "../../../Lintuaanet/Jarripeippo/Jarripeippo_4.wav",
+      "../../../Lintuaanet/Jarripeippo/Jarripeippo_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Kaki",
+    "birdSounds": [
+      "../../../Lintuaanet/Kaki/Kaki_1.wav",
+      "../../../Lintuaanet/Kaki/Kaki_2.wav",
+      "../../../Lintuaanet/Kaki/Kaki_3.wav",
+      "../../../Lintuaanet/Kaki/Kaki_4.wav",
+      "../../../Lintuaanet/Kaki/Kaki_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Pajulintu",
+    "birdSounds": [
+      "../../../Lintuaanet/Pajulintu/Pajulintu_1.wav",
+      "../../../Lintuaanet/Pajulintu/Pajulintu_2.wav",
+      "../../../Lintuaanet/Pajulintu/Pajulintu_3.wav",
+      "../../../Lintuaanet/Pajulintu/Pajulintu_4.wav",
+      "../../../Lintuaanet/Pajulintu/Pajulintu_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Peippo",
+    "birdSounds": [
+      "../../../Lintuaanet/Peippo/Peippo_1.wav",
+      "../../../Lintuaanet/Peippo/Peippo_2.wav",
+      "../../../Lintuaanet/Peippo/Peippo_3.wav",
+      "../../../Lintuaanet/Peippo/Peippo_4.wav",
+      "../../../Lintuaanet/Peippo/Peippo_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Punarinta",
+    "birdSounds": [
+      "../../../Lintuaanet/Punarinta/Punarinta_1.wav",
+      "../../../Lintuaanet/Punarinta/Punarinta_2.wav",
+      "../../../Lintuaanet/Punarinta/Punarinta_3.wav",
+      "../../../Lintuaanet/Punarinta/Punarinta_4.wav",
+      "../../../Lintuaanet/Punarinta/Punarinta_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Rakattirastas",
+    "birdSounds": [
+      "../../../Lintuaanet/Rakattirastas/Rakattirastas_1.wav",
+      "../../../Lintuaanet/Rakattirastas/Rakattirastas_2.wav",
+      "../../../Lintuaanet/Rakattirastas/Rakattirastas_3.wav",
+      "../../../Lintuaanet/Rakattirastas/Rakattirastas_4.wav",
+      "../../../Lintuaanet/Rakattirastas/Rakattirastas_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Selkalokki",
+    "birdSounds": [
+      "../../../Lintuaanet/Selkalokki/Selkalokki_1.wav",
+      "../../../Lintuaanet/Selkalokki/Selkalokki_2.wav",
+      "../../../Lintuaanet/Selkalokki/Selkalokki_3.wav",
+      "../../../Lintuaanet/Selkalokki/Selkalokki_4.wav",
+      "../../../Lintuaanet/Selkalokki/Selkalokki_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  },
+  {
+    "birdName": "Varis",
+    "birdSounds": [
+      "../../../Lintuaanet/Varis/Varis_1.wav",
+      "../../../Lintuaanet/Varis/Varis_2.wav",
+      "../../../Lintuaanet/Varis/Varis_3.wav",
+      "../../../Lintuaanet/Varis/Varis_4.wav",
+      "../../../Lintuaanet/Varis/Varis_5.wav"
+    ],
+    "heardCnt": 0,
+    "correctCnt": 0,
+    "wrongCnt": 0,
+    "rowCnt": 0,
+    "Priority": 0.9
+  }
+]
