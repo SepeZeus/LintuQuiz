@@ -33,6 +33,7 @@
             pictureBox1 = new PictureBox();
             button1 = new Button();
             panel2 = new Panel();
+            button6 = new Button();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -60,7 +61,7 @@
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(104, 0);
+            pictureBox1.Location = new Point(102, 18);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(165, 160);
@@ -82,6 +83,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(button6);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
@@ -92,25 +94,43 @@
             panel2.Size = new Size(959, 237);
             panel2.TabIndex = 1;
             // 
+            // button6
+            // 
+            button6.BackColor = Color.Magenta;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.ForeColor = Color.Transparent;
+            button6.Location = new Point(738, 67);
+            button6.Margin = new Padding(3, 4, 3, 4);
+            button6.Name = "button6";
+            button6.Size = new Size(150, 93);
+            button6.TabIndex = 5;
+            button6.Text = "Next";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
+            // 
             // button5
             // 
             button5.BackColor = Color.Magenta;
             button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button5.ForeColor = Color.Transparent;
-            button5.Location = new Point(701, 2);
+            button5.Location = new Point(519, 124);
             button5.Margin = new Padding(3, 4, 3, 4);
             button5.Name = "button5";
-            button5.Size = new Size(93, 93);
+            button5.Size = new Size(150, 93);
             button5.TabIndex = 4;
             button5.Text = "button5";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button2_Click;
             // 
             // button4
             // 
             button4.BackColor = Color.Magenta;
             button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button4.ForeColor = Color.Transparent;
-            button4.Location = new Point(519, 2);
+            button4.Location = new Point(336, 124);
             button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
             button4.Size = new Size(150, 93);
@@ -123,8 +143,9 @@
             // 
             button3.BackColor = Color.Magenta;
             button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(335, 4);
+            button3.Location = new Point(519, 13);
             button3.Margin = new Padding(3, 4, 3, 4);
             button3.Name = "button3";
             button3.Size = new Size(150, 93);
@@ -137,8 +158,9 @@
             // 
             button2.BackColor = Color.Magenta;
             button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(151, 4);
+            button2.Location = new Point(336, 13);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(150, 93);
@@ -185,5 +207,6 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button button5;
+        private Button button6;
     }
 }
