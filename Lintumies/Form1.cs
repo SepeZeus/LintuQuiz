@@ -6,14 +6,10 @@ namespace Lintumies
 {
     public partial class Form1 : Form
     {
+        string bird = "Varis";
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
         List<string> arr = new List<string> { "Varis_1.wav", "Varis_2.wav", "Varis_3.wav"
             , "Varis_4.wav", "Varis_5.wav" }; //Test code for .wav files
@@ -34,5 +30,35 @@ namespace Lintumies
             player.Play();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            btn.ForeColor = Color.Yellow;
+            if (button2.Text == bird)
+            {
+                button2.BackColor = Color.Green;
+                button3.BackColor = Color.Red;
+                button4.BackColor = Color.Red;
+
+            }
+            else if (button3.Text == bird)
+            {
+                button3.BackColor = Color.Green;
+
+                button2.BackColor = Color.Red;
+                button4.BackColor = Color.Red;
+            }
+            else if (button4.Text == bird)
+            {
+                button4.BackColor = Color.Green;
+
+                button2.BackColor = Color.Red;
+                button3.BackColor = Color.Red;
+            }
+        }
+
+
     }
 }
