@@ -39,12 +39,14 @@ namespace Lintumies
 
             //Random rnd = new Random();
             //int rndN = rnd.Next(0, arr.Count);
+            BirdDB.BirdDBMethods varis = BirdDB.BirdDBMethods.GetBirdDetails("Hippiainen");
+
             string birdSound = arr[0];
             //Debug.WriteLine(arr[0]);
             string birdSoundPath = Path.GetFullPath("../../../Lintuaanet/Varis/" + birdSound);
 
-            SoundPlayer player = new SoundPlayer(birdSoundPath);
-            Debug.WriteLine(birdSoundPath);
+            SoundPlayer player = new SoundPlayer(varis.birdSounds[0]);
+            Debug.WriteLine(varis.birdSounds[0]);
 
             player.Play();
 
@@ -137,6 +139,7 @@ namespace Lintumies
             //bird.AddBird("bird name", 10, 5, 5, 1);
             bird.UpdateBird("sparrow", 20, 10, 5, 10);
 
+            BirdDB.BirdDBMethods varis = BirdDB.BirdDBMethods.GetBirdDetails("sparrow");
 
 
 
