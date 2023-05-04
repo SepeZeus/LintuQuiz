@@ -20,17 +20,82 @@ namespace Lintumies
     public partial class Form1 : Form
     {
         bool clicked = false;
-        string bird = ""; 
+        string bird = "";
         string birdImagePath = "";
+        Random random = new Random();
+        Button[] buttons = new Button[4];
+        int rndBtn = 0;
 
 
         public Form1()
         {
             InitializeComponent();
             bird = Satunnainen();
-            birdImagePath = Path.GetFullPath("../../../Lintukuvat/"+bird+".jpg");
+            birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + bird + ".jpg");
+            buttons[0] = button2;
+            buttons[1] = button3;
+            buttons[2] = button4;
+            buttons[3] = button5;
+            setButtons();
+        }
 
+        //set the buttons to random names (except for the chosen bird)
+        // chosen bird button is a random button
+        public void setButtons()
+        {
+            rndBtn = random.Next(0, 4);
 
+            buttons[rndBtn].Text = bird;
+            
+
+            if (button2.Text != buttons[rndBtn].Text)
+                button2.Text = Satunnainen();
+            if (button3.Text != buttons[rndBtn].Text)
+                button3.Text = Satunnainen();
+            if (button4.Text != buttons[rndBtn].Text)
+                button4.Text = Satunnainen();
+            if (button5.Text != buttons[rndBtn].Text)
+                button5.Text = Satunnainen();
+
+            Debug.WriteLine(rndBtn);
+            checkIfSame();
+
+        }
+
+        //checks if any of the choices are the same -> change name of one of the choices
+        public void checkIfSame()
+        {
+
+            if (button2.Text == button3.Text || button2.Text == button4.Text || button2.Text == button5.Text ||
+                button3.Text == button4.Text || button3.Text == button5.Text ||
+                button4.Text == button5.Text) {
+
+                Debug.WriteLine(buttons[0].Text);
+                Debug.WriteLine(button3.Text);
+                Debug.WriteLine(button4.Text);
+                Debug.WriteLine(button5.Text);
+                for (int i = 0; i < 4; i++)
+                {
+                    if (buttons[i].Text == bird && i != rndBtn)
+                    {
+                        buttons[i].Text = Satunnainen();
+                    }
+                    else if (button2.Text != bird && (button2.Text == button3.Text || button2.Text == button4.Text || button2.Text == button5.Text))
+                    {
+                        button2.Text = Satunnainen();
+                    }
+                    else if(button3.Text != bird && (button3.Text == button4.Text || button3.Text == button5.Text))
+                    {
+                        button3.Text = Satunnainen();
+                    }
+                    else if (button4.Text != bird && (button4.Text == button5.Text))
+                    {
+                        button4.Text = Satunnainen();
+                    }
+                }
+                Debug.WriteLine("----------------------------------");
+                checkIfSame();
+            }
         }
 
 
@@ -38,20 +103,21 @@ namespace Lintumies
             , "Varis_4.wav", "Varis_5.wav" }; //Test code for .wav files
 
 
+        //select the chosen bird's audio file randomly
         private void button1_Click(object sender, EventArgs e)
         {
             //Test code for .wav files
 
             //Random rnd = new Random();
             //int rndN = rnd.Next(0, arr.Count);
-            BirdDB.BirdDBMethods varis = BirdDB.BirdDBMethods.GetBirdDetails("Hippiainen");
-
-            string birdSound = arr[0];
+            BirdDB.BirdDBMethods varis = BirdDB.BirdDBMethods.GetBirdDetails(bird);
             //Debug.WriteLine(arr[0]);
-            string birdSoundPath = Path.GetFullPath("../../../Lintuaanet/Varis/" + birdSound);
+            int rndBirdSound = random.Next(0, 5);
 
-            SoundPlayer player = new SoundPlayer(varis.birdSounds[0]);
-            Debug.WriteLine(varis.birdSounds[0]);
+
+            //string birdSoundPath = Path.GetFullPath("../../../Lintuaanet/" +bird+"/"+bird+rndBirdSound.ToString);
+
+            SoundPlayer player = new SoundPlayer(varis.birdSounds[rndBirdSound]);
 
             player.Play();
 
@@ -132,11 +198,9 @@ namespace Lintumies
 
 
             bird = rndBird;
+            setButtons();
 
-            button2.Text = rndBird;
-            button3.Text = Satunnainen();
-            button4.Text = Satunnainen();
-            button5.Text = Satunnainen();
+
 
             button2.BackColor = Color.Magenta;
             button3.BackColor = Color.Magenta;
