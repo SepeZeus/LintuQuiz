@@ -1,4 +1,3 @@
-using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
 using System.Media;
 using Lintumies.Database;
@@ -25,7 +24,7 @@ namespace Lintumies
         Random random = new Random();
         Button[] buttons = new Button[4];
         int rndBtn = 0;
-
+        private SoundPlayer player;
 
         public Form1()
         {
@@ -106,19 +105,10 @@ namespace Lintumies
         //select the chosen bird's audio file randomly
         private void button1_Click(object sender, EventArgs e)
         {
-            //Test code for .wav files
-
-            //Random rnd = new Random();
-            //int rndN = rnd.Next(0, arr.Count);
-            BirdDB.BirdDBMethods varis = BirdDB.BirdDBMethods.GetBirdDetails(bird);
-            //Debug.WriteLine(arr[0]);
+            BirdDB.BirdDBMethods birdDetails = BirdDB.BirdDBMethods.GetBirdDetails(bird);
             int rndBirdSound = random.Next(0, 5);
 
-
-            //string birdSoundPath = Path.GetFullPath("../../../Lintuaanet/" +bird+"/"+bird+rndBirdSound.ToString);
-
-            SoundPlayer player = new SoundPlayer(varis.birdSounds[rndBirdSound]);
-
+            player = new SoundPlayer(birdDetails.birdSounds[rndBirdSound]);
             player.Play();
 
 
@@ -134,6 +124,7 @@ namespace Lintumies
             Button btn = (Button)sender;
             if (!clicked)
             {
+                label1.Visible = false;
                 clicked = true;
                 btn.ForeColor = Color.Yellow;
                 if (button2.Text == bird)
@@ -191,6 +182,8 @@ namespace Lintumies
         //button for Next bird sound
         private void button6_Click(object sender, EventArgs e)
         {
+            if(player != null)
+                player.Stop();
             string rndBird = Satunnainen();
             birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + rndBird + ".jpg");
             pictureBox1.Image = Image.FromFile("../../../Lintukuvat/Lintu.png");
@@ -215,9 +208,7 @@ namespace Lintumies
 
             clicked = false;
 
-            
-
-
+            button1_Click(sender, e);
             List<BirdDB.BirdDBMethods> birdList = new List<BirdDB.BirdDBMethods>();
             //bird.AddBird("bird name", 10, 5, 5, 1);
 
