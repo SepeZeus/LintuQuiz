@@ -258,5 +258,20 @@ namespace Lintumies
         {
             birdRowCntReset();
         }
+
+        //go see your results
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (player != null)
+                player.Stop();
+            // Create an instance of the new form
+            Form2 form2 = new Form2();
+
+            // Show the new form
+            form2.Show();
+
+            // Hide the current form (Form1)
+            this.Hide();
+        }
     }
 }

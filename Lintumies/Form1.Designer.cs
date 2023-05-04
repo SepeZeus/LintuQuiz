@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            button7 = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             button1 = new Button();
@@ -47,15 +48,31 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(button7);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(button1);
             panel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            panel1.Location = new Point(240, 75);
+            panel1.Location = new Point(74, 64);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(527, 448);
             panel1.TabIndex = 0;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.Black;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button7.ForeColor = Color.Transparent;
+            button7.Location = new Point(412, 13);
+            button7.Margin = new Padding(3, 4, 3, 4);
+            button7.Name = "button7";
+            button7.Size = new Size(100, 80);
+            button7.TabIndex = 6;
+            button7.Text = "Results";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // label1
             // 
@@ -84,12 +101,12 @@
             // 
             button1.BackColor = SystemColors.InfoText;
             button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(226, 221);
+            button1.Location = new Point(189, 223);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(90, 40);
+            button1.Size = new Size(129, 40);
             button1.TabIndex = 0;
-            button1.Text = "Play sound";
+            button1.Text = "Play Sound";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -101,7 +118,7 @@
             panel2.Controls.Add(button4);
             panel2.Controls.Add(button3);
             panel2.Controls.Add(button2);
-            panel2.Location = new Point(240, 531);
+            panel2.Location = new Point(74, 520);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(527, 237);
@@ -186,7 +203,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1157, 840);
+            ClientSize = new Size(673, 820);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
@@ -212,5 +229,6 @@
         private Label label1;
         private Button button5;
         private Button button6;
+        private Button button7;
     }
 }
