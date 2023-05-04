@@ -25,11 +25,14 @@ namespace Lintumies
         Button[] buttons = new Button[4];
         int rndBtn = 0;
         private SoundPlayer player;
+        BirdDB.BirdDBMethods birdDetails;
+
 
         public Form1()
         {
             InitializeComponent();
             bird = Satunnainen();
+            birdDetails = BirdDB.BirdDBMethods.GetBirdDetails(bird);
             birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + bird + ".jpg");
             buttons[0] = button2;
             buttons[1] = button3;
@@ -98,14 +101,10 @@ namespace Lintumies
         }
 
 
-        List<string> arr = new List<string> { "Varis_1.wav", "Varis_2.wav", "Varis_3.wav"
-            , "Varis_4.wav", "Varis_5.wav" }; //Test code for .wav files
-
-
         //select the chosen bird's audio file randomly
         private void button1_Click(object sender, EventArgs e)
         {
-            BirdDB.BirdDBMethods birdDetails = BirdDB.BirdDBMethods.GetBirdDetails(bird);
+            birdDetails = BirdDB.BirdDBMethods.GetBirdDetails(bird);
             int rndBirdSound = random.Next(0, 5);
 
             player = new SoundPlayer(birdDetails.birdSounds[rndBirdSound]);
@@ -124,6 +123,10 @@ namespace Lintumies
             Button btn = (Button)sender;
             if (!clicked)
             {
+                if (btn.Text == bird)
+                {
+
+                }
                 label1.Visible = false;
                 clicked = true;
                 btn.ForeColor = Color.Yellow;
@@ -133,6 +136,7 @@ namespace Lintumies
                     button3.BackColor = Color.Red;
                     button4.BackColor = Color.Red;
                     button5.BackColor = Color.Red;
+
 
 
                     pictureBox1.Image = Image.FromFile(birdImagePath);
@@ -209,11 +213,6 @@ namespace Lintumies
             clicked = false;
 
             button1_Click(sender, e);
-            List<BirdDB.BirdDBMethods> birdList = new List<BirdDB.BirdDBMethods>();
-            //bird.AddBird("bird name", 10, 5, 5, 1);
-
-
-
 
         }
 
