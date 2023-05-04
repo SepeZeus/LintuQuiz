@@ -24,7 +24,7 @@ namespace Lintumies
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
 
@@ -47,6 +47,10 @@ namespace Lintumies
             Debug.WriteLine(birdSoundPath);
 
             player.Play();
+
+
+            Lintu lintu = new Lintu(null, null);
+            lintu.Harakka();
 
         }
 
@@ -140,6 +144,45 @@ namespace Lintumies
 
 
 
+        }
+    }
+
+    internal class Lintu
+    {
+        public Lintu(int? id, string? polku)
+        {
+            Id = id;
+            Polku = polku;
+        }
+
+        public int? Id { get; set; }
+        public string? Polku { get; set; }
+
+        public void Harakka()
+        {
+            Lintu lintu = new Lintu(null, null);
+            List<Lintu> lista = new List<Lintu>()
+            {
+                new Lintu(1, "Harakka_1.mp3"),
+                new Lintu(2, "Harakka_2.wav"),
+                new Lintu(3, "Harakka_3.mp3"),
+                new Lintu(4, "Harakka_4.wav"),
+                new Lintu(5, "Harakka_5.mp3")
+            };
+            lintu.Laulu(lista);
+        }
+        public void Laulu(List<Lintu> lista)
+        {
+            Random random = new Random();
+            int luku = random.Next(1, 6);
+            var etsi = from x in lista
+                       where x.Id == luku
+                       select x;
+            foreach (var item in etsi)
+            {
+                SoundPlayer player = new SoundPlayer(item.Polku);
+                player.Play();
+            }
         }
     }
 }
