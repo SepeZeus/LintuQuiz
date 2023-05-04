@@ -1,6 +1,7 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
 using System.Media;
+using static Lintumies.Database.BirdDB;
 
 namespace Lintumies
 {
@@ -110,6 +111,15 @@ namespace Lintumies
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             clicked = false;
 
+            BirdBD bird = new BirdBD()
+            {
+                birdName = "Some bird name",
+                heardCnt = 10,
+                correctCnt = 5,
+                wrongCnt = 5,
+                Priority = 2
+            };
+            bird.SaveToJson("birdData.json");
 
         }
     }
