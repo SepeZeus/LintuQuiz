@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -38,7 +39,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -55,6 +55,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(461, 336);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.label1.Location = new System.Drawing.Point(23, 208);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(425, 97);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "                           Welcome to bird quiz!\r\n              Your task is to l" +
+    "isten to the bird song and\r\n    select corresponding bird from the 4 options bel" +
+    "ow\r\n";
             // 
             // pictureBox1
             // 
@@ -79,6 +90,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Play sound";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -105,6 +117,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "Next";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -118,6 +131,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -131,6 +145,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -144,6 +159,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button2_Click);
             // 
             // button2
             // 
@@ -157,17 +173,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Varis";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Location = new System.Drawing.Point(23, 208);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(425, 97);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "                           Welcome to bird quiz!\r\n              Your task is to l" +
-    "isten to the bird song and\r\n    select corresponding bird from the 4 options bel" +
-    "ow\r\n";
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
