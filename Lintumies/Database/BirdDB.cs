@@ -18,7 +18,7 @@ namespace Lintumies.Database
             public int heardCnt { get; set; }
             public int correctCnt { get; set; }
             public int wrongCnt { get; set; }
-            public int Priority { get; set; }
+            public double Priority { get; set; }
 
 
             // Method to save data to a .json file
@@ -62,7 +62,7 @@ namespace Lintumies.Database
 
 
 
-            public void AddBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, int priority)
+            public void AddBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, double priority)
             {
                 string filePath = "../../../Database/birdData.json";
 
@@ -91,7 +91,7 @@ namespace Lintumies.Database
             }
 
 
-            public void UpdateBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, int priority)
+            public void UpdateBird(string birdName, int heardCnt, int correctCnt, int wrongCnt, double priority)
             {
                 string filePath = "../../../Database/birdData.json";
 

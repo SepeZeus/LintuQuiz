@@ -19,6 +19,7 @@ namespace Lintumies
     public partial class Form1 : Form
     {
         bool clicked = false;
+        bool correctAnswer = false;
         string bird = "";
         string birdImagePath = "";
         Random random = new Random();
@@ -26,11 +27,16 @@ namespace Lintumies
         int rndBtn = 0;
         private SoundPlayer player;
         BirdDB.BirdDBMethods birdDetails;
+        SpacedRepetition spacedRepetition = new SpacedRepetition();
+        List<string> linnut;
+
+        bool locked = false;
 
 
         public Form1()
         {
             InitializeComponent();
+            linnut = spacedRepetition.listOfBirds();
             bird = Satunnainen();
             birdDetails = BirdDB.BirdDBMethods.GetBirdDetails(bird);
             birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + bird + ".jpg");
@@ -46,12 +52,15 @@ namespace Lintumies
         public void setButtons()
         {
             rndBtn = random.Next(0, 4);
+            Satunnainen();
+            locked = true;
 
             buttons[rndBtn].Text = bird;
             
 
             if (button2.Text != buttons[rndBtn].Text)
                 button2.Text = Satunnainen();
+
             if (button3.Text != buttons[rndBtn].Text)
                 button3.Text = Satunnainen();
             if (button4.Text != buttons[rndBtn].Text)
@@ -59,7 +68,6 @@ namespace Lintumies
             if (button5.Text != buttons[rndBtn].Text)
                 button5.Text = Satunnainen();
 
-            Debug.WriteLine(rndBtn);
             checkIfSame();
 
         }
@@ -72,10 +80,6 @@ namespace Lintumies
                 button3.Text == button4.Text || button3.Text == button5.Text ||
                 button4.Text == button5.Text) {
 
-                Debug.WriteLine(buttons[0].Text);
-                Debug.WriteLine(button3.Text);
-                Debug.WriteLine(button4.Text);
-                Debug.WriteLine(button5.Text);
                 for (int i = 0; i < 4; i++)
                 {
                     if (buttons[i].Text == bird && i != rndBtn)
@@ -95,7 +99,6 @@ namespace Lintumies
                         button4.Text = Satunnainen();
                     }
                 }
-                Debug.WriteLine("----------------------------------");
                 checkIfSame();
             }
         }
@@ -118,15 +121,37 @@ namespace Lintumies
          * chosen answer changes outline to yellow
          * bird image will be shown
         */
+
+        private void birdUpdater(bool correct)
+        {
+            BirdDB.BirdDBMethods birdUpdate = new BirdDB.BirdDBMethods();
+
+            int heardCnt = birdDetails.heardCnt, correctCnt = birdDetails.correctCnt, wrongCnt = birdDetails.wrongCnt;
+
+            if (correct)
+            {
+                heardCnt += 1;
+                correctCnt += 1;
+            }
+            else
+            {
+                heardCnt += 1;
+                wrongCnt += 1;
+            }
+            double priority = spacedRepetition.priotityCalculator(heardCnt, wrongCnt);
+            birdUpdate.UpdateBird(bird, heardCnt, correctCnt, wrongCnt, priority);
+
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             if (!clicked)
             {
                 if (btn.Text == bird)
-                {
-
-                }
+                    correctAnswer = true;
+                else
+                    correctAnswer = false;
+                birdUpdater(correctAnswer);
                 label1.Visible = false;
                 clicked = true;
                 btn.ForeColor = Color.Yellow;
@@ -188,13 +213,16 @@ namespace Lintumies
         {
             if(player != null)
                 player.Stop();
+            linnut = spacedRepetition.listOfBirds();
             string rndBird = Satunnainen();
             birdImagePath = Path.GetFullPath("../../../Lintukuvat/" + rndBird + ".jpg");
             pictureBox1.Image = Image.FromFile("../../../Lintukuvat/Lintu.png");
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
+            locked = false;
 
             bird = rndBird;
+
             setButtons();
 
 
@@ -210,6 +238,12 @@ namespace Lintumies
             button4.ForeColor = Color.White;
             button5.ForeColor = Color.White;
 
+            if (!clicked)
+            {
+                correctAnswer = false;
+                birdUpdater(correctAnswer);
+            }
+
             clicked = false;
 
             button1_Click(sender, e);
@@ -219,22 +253,19 @@ namespace Lintumies
 
         public string Satunnainen()
         {
-            List<string> linnut = new List<string>();
-            linnut.Add("Harakka");
-            linnut.Add("Hippiainen");
-            linnut.Add("Jarripeippo");
-            linnut.Add("Kaki");
-            linnut.Add("Pajulintu");
-            linnut.Add("Peippo");
-            linnut.Add("Punarinta");
-            linnut.Add("Rakattirastas");
-            linnut.Add("Selkalokki");
-            linnut.Add("Varis");
             Random random = new Random();
-            int luku = random.Next(0, 10);
+            int luku = random.Next(0, 5);
             var lintu = linnut[luku];
-            Debug.WriteLine(luku);
 
+            if (!locked)
+            {
+                Debug.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Debug.WriteLine(linnut[i]);
+                }
+            }
             return lintu;
 
 
