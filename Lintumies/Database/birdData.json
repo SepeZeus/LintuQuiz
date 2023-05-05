@@ -8,11 +8,11 @@
       "../../../Lintuaanet/Harakka/Harakka_4.wav",
       "../../../Lintuaanet/Harakka/Harakka_5.wav"
     ],
-    "heardCnt": 11,
-    "correctCnt": 5,
-    "wrongCnt": 6,
+    "heardCnt": 14,
+    "correctCnt": 7,
+    "wrongCnt": 7,
     "rowCnt": 0,
-    "Priority": 0.55
+    "Priority": 0.5
   },
   {
     "birdName": "Hippiainen",
@@ -83,11 +83,11 @@
       "../../../Lintuaanet/Peippo/Peippo_4.wav",
       "../../../Lintuaanet/Peippo/Peippo_5.wav"
     ],
-    "heardCnt": 10,
-    "correctCnt": 4,
-    "wrongCnt": 6,
+    "heardCnt": 16,
+    "correctCnt": 5,
+    "wrongCnt": 11,
     "rowCnt": 0,
-    "Priority": 0.6
+    "Priority": 0.69
   },
   {
     "birdName": "Punarinta",
@@ -98,11 +98,11 @@
       "../../../Lintuaanet/Punarinta/Punarinta_4.wav",
       "../../../Lintuaanet/Punarinta/Punarinta_5.wav"
     ],
-    "heardCnt": 4,
+    "heardCnt": 7,
     "correctCnt": 1,
-    "wrongCnt": 3,
+    "wrongCnt": 6,
     "rowCnt": 0,
-    "Priority": 0.75
+    "Priority": 0.86
   },
   {
     "birdName": "Rakattirastas",
@@ -113,11 +113,11 @@
       "../../../Lintuaanet/Rakattirastas/Rakattirastas_4.wav",
       "../../../Lintuaanet/Rakattirastas/Rakattirastas_5.wav"
     ],
-    "heardCnt": 11,
-    "correctCnt": 6,
+    "heardCnt": 13,
+    "correctCnt": 8,
     "wrongCnt": 5,
     "rowCnt": 0,
-    "Priority": 0.45
+    "Priority": 0.38
   },
   {
     "birdName": "Selkalokki",
@@ -143,10 +143,10 @@
       "../../../Lintuaanet/Varis/Varis_4.wav",
       "../../../Lintuaanet/Varis/Varis_5.wav"
     ],
-    "heardCnt": 3,
-    "correctCnt": 3,
-    "wrongCnt": 0,
+    "heardCnt": 8,
+    "correctCnt": 4,
+    "wrongCnt": 4,
     "rowCnt": 0,
-    "Priority": 0.1
+    "Priority": 0.5
   }
 ]

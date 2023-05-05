@@ -13,6 +13,8 @@ namespace Lintumies
         string bird = "";
         string birdImagePath = "";
 
+        int curStreak = 0;
+
         List<string> linnut;
         Button[] buttons = new Button[4];
 
@@ -120,11 +122,13 @@ namespace Lintumies
             {
                 heardCnt += 1;
                 correctCnt += 1;
+                curStreak += 1;
             }
             else
             {
                 heardCnt += 1;
                 wrongCnt += 1;
+                curStreak = 0;
             }
             double priority = spacedRepetition.priotityCalculator(heardCnt, wrongCnt);
             birdUpdate.UpdateBird(birdDetails.birdName, heardCnt, correctCnt, wrongCnt, birdDetails.rowCnt, priority);
@@ -134,7 +138,6 @@ namespace Lintumies
             Button btn = (Button)sender;
             if (!clicked)
             {
-                label1.Visible = false;
                 clicked = true;
 
                 if (btn.Text == bird)
@@ -211,6 +214,9 @@ namespace Lintumies
                 player.Stop();
                 timer.Stop();
             }
+            label1.Font = new Font(label1.Font.FontFamily, 36, FontStyle.Regular);
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Text = "Streak: " + curStreak;
             linnut = spacedRepetition.listOfBirds();
             string rndBird = Satunnainen();
             bird = rndBird;
